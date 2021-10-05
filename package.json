@@ -1,0 +1,28 @@
+{
+  "name": "geogiapp",
+  "version": "1.0.0",
+  "description": "app help learn about the geography with IA from childs in Colombia",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deisybasto/geogiapp.git"
+  },
+  "author": "deisy basto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deisybasto/geogiapp/issues"
+  },
+  "homepage": "https://github.com/deisybasto/geogiapp#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  }
+}
