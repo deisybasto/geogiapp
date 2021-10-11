@@ -22,18 +22,18 @@ module.exports = class Server {
     };
 
     routes() {
+
         //ruta de la api
         //this.expressRoutes = this.app.router;
-       this.app.get(`/v1`);
-        /*this.app.get('/api', (req, res) => {
+       //this.router.use('/v1', this.ownRoute);
+        this.app.get('/api', (req, res) => {
             res.json({
                 msg: "ok",
                 res: "api",
-                respuesta : this.ownRoute
 
             });
 
-        });*/
+        });
 
         
     };
@@ -42,7 +42,7 @@ module.exports = class Server {
     listen() {
         this.app.listen(this.port, () => {
             console.log(`Example app listening at http://localhost:${port}
-                 ${this.app.routes}`)
+                 ${this.routes()}`)
 
         });
 
