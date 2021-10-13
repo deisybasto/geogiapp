@@ -1,14 +1,9 @@
-const app = require('express');
-const router = express.Router();
+const { Router } = require('express');
 const signUP = require('../apiServices/signUp/router');
+const router = Router();
 
-/*router.use('/api', (req,res)=>{
-    res.json({
-        msg:'ruta routes'
-
-    });
-});*/
-
+//router to sigUP register
+router.use('/api',signUP);
 
 
 module.exports = router;

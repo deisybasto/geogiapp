@@ -6,6 +6,6 @@ const router = e.Router();
 
 const server = new Server();
 
-router.use('/v1',route)
+
 
 server.listen();

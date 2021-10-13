@@ -11,7 +11,7 @@ module.exports = class Server {
         this.port = port;
         this.ownRoute = route;
         this.router = express.Router();
-
+        this.middlewares();
         this.routes();
 
     }
@@ -23,18 +23,7 @@ module.exports = class Server {
 
     routes() {
 
-        //ruta de la api
-        //this.expressRoutes = this.app.router;
-       //this.router.use('/v1', this.ownRoute);
-        this.app.get('/api', (req, res) => {
-            res.json({
-                msg: "ok",
-                res: "api",
-
-            });
-
-        });
-
+        this.app.use( '/v1', this.ownRoute);
         
     };
 
