@@ -1,12 +1,9 @@
 const { Router } = require('express');
-const router = Router;
+const signUP = require('../apiServices/signUp/router');
+const router = Router();
+
+//router to sigUP register
+router.use('/api',signUP);
 
 
-router.get('/v1', (req,res) =>{
-    res.json({
-        msg :'ok'
-    })
-
-});
-
-module.exports = router
+module.exports = router;
