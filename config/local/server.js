@@ -1,5 +1,6 @@
 require('dotenv').config();
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
 const port = process.env.PORT || 3000
 
 
@@ -8,19 +9,21 @@ module.exports = class Server {
     constructor() {
         this.app = express();
         this.port = port;
-        this.routes;
+        this.cors = cors;
+        this.routes();
+        this.middlewares();
        
     }
 
     routes(){
         //ruta de la api
-        this.app.get('/', (req,res) =>{
-            res.send('hello world')
-
-        });
+        
     }
 
     middlewares () {
+
+        //cors
+        this.app.use(this.cors());
 
     }
 
