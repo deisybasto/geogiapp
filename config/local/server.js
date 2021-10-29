@@ -1,7 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const route  = require('../../routes/routes')
+const cors = require('cors');
 const port = process.env.PORT || 8000
+
+const { dbConnection } = require('../database/config')
 
 
 module.exports = class Server {
@@ -10,15 +13,27 @@ module.exports = class Server {
         this.app = express();
         this.port = port;
         this.ownRoute = route;
+
+        this.conectarDB();
         this.router = express.Router();
         this.middlewares();
         this.routes();
 
     }
 
-    middlewares() {
-        this.app.use(express.static('public'));
+    async conectarDB() {
+        await dbConnection();
+    }
 
+    middlewares() {
+          // CORS
+          this.app.use( cors() );
+
+          // Lectura y parseo del body
+          this.app.use( express.json() );
+  
+          // Directorio Público
+          this.app.use( express.static('public') );
     };
 
     routes() {
@@ -27,11 +42,9 @@ module.exports = class Server {
         
     };
 
-
     listen() {
         this.app.listen(this.port, () => {
-            console.log(`Example app listening at http://localhost:${port}
-                 ${this.routes()}`)
+            console.log(`Example app listening at http://localhost:${port}`)
 
         });
 
