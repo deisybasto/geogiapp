@@ -7,8 +7,7 @@ const UserScheme = Schema({
     },
     email: {
         type: String,
-        required: [true, 'El correo es obligatorio'],
-        unique: true
+        required: [true, 'El correo es obligatorio']
     },
     password: {
         type: String,
@@ -25,6 +24,10 @@ const UserScheme = Schema({
     state: {
         type: Boolean,
         default: true
+    },
+    points: {
+        type: Number,
+        default:0
     }
 });
 

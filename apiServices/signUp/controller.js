@@ -1,6 +1,6 @@
 const { request, response } = require('express');
-const  modelUser  = require('./model');
-//const bcryptjs = require('bcryptjs');
+const modelUser = require('./model');
+const bcryptjs = require('bcryptjs');
 
 const registerUserChild = async (req = request, res = response) => {
 
@@ -10,22 +10,28 @@ const registerUserChild = async (req = request, res = response) => {
         password,
         ageChild,
         nameFather,
-        state 
+        state
 
     } = req.body;
-    
-    let newUser = new modelUser (  
+
+
+    let newUser = new modelUser(
         nameChild,
         email,
         password,
         ageChild,
         nameFather,
-        state  )
+        state)
+
+    const salt = bcryptjs.genSaltSync();
+    newUser.password = bcryptjs.hashSync(password, salt);
+
     await newUser.userSave();
- 
+
     res.json({
         msg: "ok",
-        res: "usuario registrado"
+        res: "usuario registrado",
+        body: newUser
     });
 };
 

@@ -9,7 +9,8 @@ module.exports = class UsersSave {
         password,
         ageChild,
         nameFather,
-        state
+        state,
+        points
 
      )
      {
@@ -21,9 +22,10 @@ module.exports = class UsersSave {
            email,
            password,
            ageChild,
-           nameChild,
            nameFather,
-           state
+           state,
+           points
+
        })
     
     }

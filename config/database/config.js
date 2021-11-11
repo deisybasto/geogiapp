@@ -4,7 +4,9 @@ const dbConnection = async() => {
 
     try {
 
-        await mongoose.connect( process.env.MONGO_DB_CONFIG);
+        await mongoose.connect(process.env.MONGO_DB_CONFIG,{
+
+        });
     
         console.log('Base de datos online');
 
