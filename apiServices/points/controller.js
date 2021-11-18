@@ -4,21 +4,24 @@ const User = require('../../models/users');
 const addPointsUser = async(req, res = response) => {
 
     const { id } = req.params;
-    let { points } = req.body;
+    let { points,newPoints } = req.body;
+    newPoints8 = points + newPoints
 
-    const user = await User.findByIdAndUpdate( id,points);
+    const user = await User.findByIdAndUpdate( id,{points:newPoints8});
 
-    res.json(user);
+    res.json(newPoints8);
 }
 
 const deletePointsUser = async(req, res = response) => {
 
     const { id } = req.params;
     let { points,newPoints } = req.body;
-    newPoints = points - newPoints
+    newPoints8 = points - newPoints
     
-    const user = await User.findByIdAndUpdate( id,{ points:newPoints });
-    res.json(user);
+    const user = await User.findByIdAndUpdate( id , { points : newPoints8});
+   
+    res.json(user.points);
+    console.log(req.body)
 
 }
 
